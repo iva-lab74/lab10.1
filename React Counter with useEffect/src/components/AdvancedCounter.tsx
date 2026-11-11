@@ -22,6 +22,12 @@ export default function AdvancedCounter() {
         setHistory(prev => [...prev, newCount]);
     };
 
+    //the reset button/ back at zero
+    const forReset = () => {
+        setCount(0);
+        setHistory([]);
+    };
+
     //always create new array for react. react will re-render
     return(
         <div>
@@ -29,6 +35,8 @@ export default function AdvancedCounter() {
             <h2>Count: {count}</h2>
             <button onClick={forIncrement}>+{step}</button>
             <button onClick={forDecrement}>-{step}</button>
+            <button onClick={forReset}>Reset!</button>
+            <input type="number" value={step} onChange={(e) => setStep(Number(e.target.value))} />
             <p>History: {history.join(",")} </p>
             <p>Steps: {step}</p>
         </div>
