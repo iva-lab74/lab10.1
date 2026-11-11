@@ -1,4 +1,10 @@
+import AdvancedCounter from "./components/AdvancedCounter";
 
 
-function App() 
+function App() {
+    return(
+        <AdvancedCounter />
+    );
+}
  
+export default App;
