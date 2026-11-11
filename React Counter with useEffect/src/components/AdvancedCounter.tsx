@@ -28,6 +28,15 @@ export default function AdvancedCounter() {
         setHistory([]);
     };
 
+    //useEffect/ AutoSaving
+    useEffect(() => {
+        const autoSave = setTimeout(() => {
+            localStorage.setItem("count", String(count));
+            console.log("Saved:", count);
+        }, 3000);
+        return() => clearTimeout(autoSave);
+    }, [count]);
+
     //always create new array for react. react will re-render
     return(
         <div>
